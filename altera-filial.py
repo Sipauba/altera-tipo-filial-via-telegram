@@ -1,6 +1,21 @@
 import telebot
+import cx_Oracle
 
-# Substitua 'YOUR_BOT_TOKEN' pelo token de acesso do seu bot
+host = 'x'
+servico = 'x'
+usuario = 'x'
+senha = 'x'
+
+# Encontra o arquivo que aponta para o banco de dados
+cx_Oracle.init_oracle_client(lib_dir="./instantclient_21_10")
+
+# Faz a conexão ao banco de dados
+conecta_banco = cx_Oracle.connect(usuario, senha, f'{host}/{servico}')
+
+# Cria um cursor no banco para que seja possível fazer consultas e alterações no banco de dados
+cursor = conecta_banco.cursor()
+
+# Este token é específico do bot criado
 TOKEN = '6418781436:AAE8hyxEjX-TjZec0ghGQVArNXAv6Vulcaw'
 
 # Crie uma instância do bot
