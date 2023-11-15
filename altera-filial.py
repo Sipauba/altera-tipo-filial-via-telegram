@@ -108,12 +108,14 @@ def cd6(message):
 # Comando /start
 @bot.message_handler(commands=['start'])
 def handle_start(message):
-    bot.send_message(message.chat.id, "Olá! Eu sou um bot de exemplo. Digite /help para ver os comandos disponíveis.")
+    bot.send_message(message.chat.id, "Bot iniciado. Digite /help para ver os comandos.")
 
 # Comando /help
 @bot.message_handler(commands=['help'])
 def handle_help(message):
     bot.send_message(message.chat.id, "Aqui estão os comandos disponíveis:\n\n"
+                                      "O comando consiste em digitar / seguido do número da filial e o tipo, se Loja ou CD \n"
+                                      "Exemplos: /6loja /4cd /20loja \n"
                                       "/start - Iniciar o bot\n"
                                       "/help - Exibir esta mensagem de ajuda\n"
                                       "/info - Exibir informações do usuário")
@@ -129,7 +131,7 @@ def handle_info(message):
 # Lidar com mensagens de texto não comandos
 @bot.message_handler(func=lambda message: True)
 def handle_text(message):
-    bot.send_message(message.chat.id, "Eu só respondo a comandos. Digite /help para ver os comandos disponíveis.")
+    bot.send_message(message.chat.id, "Comando inexistente. Digite /help para ver os comandos disponíveis.")
 
 # Iniciar o bot
 if __name__ == "__main__":
